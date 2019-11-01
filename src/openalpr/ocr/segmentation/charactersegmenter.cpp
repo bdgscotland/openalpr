@@ -381,7 +381,7 @@ namespace alpr
 
       Mat imgBestBoxes(img.size(), img.type());
       img.copyTo(imgBestBoxes);
-      cvtColor(imgBestBoxes, imgBestBoxes, CV_GRAY2BGR);
+      cvtColor(imgBestBoxes, imgBestBoxes, COLOR_GRAY2BGR);
       for (unsigned int i = 0; i < bestBoxes.size(); i++)
         rectangle(imgBestBoxes, bestBoxes[i], Scalar(0, 255, 0));
 
@@ -1026,7 +1026,7 @@ namespace alpr
       bitwise_and(tempImg, boxMask, tempImg);
 
       vector<vector<Point> > subContours;
-      findContours(tempImg, subContours, CV_RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+      findContours(tempImg, subContours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
       int tallestContourIdx = -1;
       int tallestContourHeight = 0;
       int tallestContourWidth = 0;
